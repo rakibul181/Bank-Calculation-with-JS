@@ -1,28 +1,29 @@
-document.getElementById("withdraw").addEventListener('', function(){
+document.getElementById("withdraw").addEventListener('click', function(){
     const newWithdraw = valueFromInput('new-withdraw')
 
     const previousWithdraw = amountFromID('previous-withdraw')
-
-    
-
     
 
     const previousTotal = amountFromID('current-balance')
+    console.log(previousTotal)
     
-    if(newWithdraw<=previousTotal){
-        const totalWithdraw = newWithdraw + previousWithdraw
-        setNewValue('previous-withdraw',totalWithdraw)
-        const newbalance = previousTotal- newWithdraw
-
-        setNewValue('current-balance',newbalance)
+    if(isNaN(newWithdraw)){
+        alert('Enter a Valid withdraw Amount')
     }
+
     else{
-        newbalance = 
-        alert('Tor baper Bank a ato Taka nai :)')
-
-    }
-
+        if(previousTotal>=newWithdraw){
+            const totalWithdraw = newWithdraw + previousWithdraw
+            setNewValue('previous-withdraw',totalWithdraw)
+            const newbalance = previousTotal- newWithdraw
     
+            setNewValue('current-balance',newbalance)
+        }
+        else{ 
+            alert('Tor baper Bank a ato Taka nai :)')
+    
+        }
+    }
 
      
 })
